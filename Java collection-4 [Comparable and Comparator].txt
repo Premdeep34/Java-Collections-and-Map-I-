@@ -1,0 +1,83 @@
+									+++{Comparable(I)}+++
+
+* This interface present in java.lang package it contains only one method CompareTo().
+	public int CompareTo()
+Ex:
+obj1.CompareTo(obj2)
+- returns -ve if obj1 has to come before obj2.
+- returns +ve if obj1 has to come after obj2.
+- returns 0 if obj1 and obj2 are equal.
+
+* If we depend on default natural sorting order, Internally JVM will call CompareTo() method while inserting objects to the TreeSet. Hence, The objects should be Comparable.
+TreeSet t = new TreeSet();
+t.add("B");
+t.add("Z"); // "Z".compareTo("B"); +ve
+t.add("A"); // "A".compareTo("B"); -ve
+System.out.println(t); // [A, B, Z]
+
+-----------------------------------------------------------------------------------
+Note:
+1. If we are not satisfied with default natural sorting order or if the default natural sorting order is not already available then we can define our own customized
+sorting by using Comparator.
+
+2. Comparable meant for default natural sorting order where as Comparator meant for customized sorting order.
+	
+=======================================================================================================================================================================
+									+++{Comparator(I)}+++
+
+* We can use comparator to define our own sorting (Customized sorting).
+* Comparator interface present in java.util package.
+
+* It defines two methods: compare and equals.
+1.  public int compare(Object o1, Object o2)
+- returns -ve if obj1 has to come before obj2.
+- returns +ve if obj1 has to come after obj2.
+- returns 0 if obj1 and obj2 are equal. 
+
+* When ever we are implementing Comparator interface, Compulsary we should provide implementation for compare() method.
+* And implementing equals() method is optional, Because it is already available in every java class from Object class through inheritance.
+
+[Program of Comparator compare() method for customized sorting:descending order]
+
+-----------------------------------------------------------------------------------
+Various possible implementations of compare() method:
+
+class MyComparator implements Comparator {
+	public int compare(Object o1, Object o2) {
+		Integer i1 = (Integer)o1;
+		Integer i2 = (Integer)o2;
+
+		// return i1.compareTo(i2); [0, 10, 15, 20] ascending order
+		// return -i1.compareTo(i2); [20, 15, 10, 0] descending order
+		// return i2.compareTo(i1); [20, 15, 10, 0] descending order
+		// return -i2.compareTo(i1); [0, 10, 15, 20] descending order
+		// return +1; [10, 0, 15, 20, 20] insertion order
+		// return -1; [20, 20, 15, 0, 10] Reverse of insertion order
+		// return 0; [10] Only first element will be inserted and all the other elements are considered as duplicates
+	}
+}
+
+=======================================================================================================================================================================
+Difference between Comparable and Comparator:
+
+1. For predefined Comparable classes like String default natural sorting order already available. If we are not satisfied with that, We can define our own Comparator obj.
+2. For predefined non-comparable classes like StringBuffer default natural sorting order is not already available. We can define required sorting by implementing
+Comparator interface.
+
+3. For our own classes like Employee, Student, Customer), The person who is writing our own class is responsible to define default natural sorting order by implementing
+Comparable interface.
+The person who is using our class, Is not satisfied with default natural sorting order, Then he can define his own sorting by using Comparator.
+
+=======================================================================================================================================================================
+Difference between Comparable and Comparator:
+
+Comparable | Comparator
+
+1. Default natural sorting order | Customized sorting order
+2. Present in java.lang | Present in java.util
+3. compareTo() | Two methods: 
+               |	1. compare()
+               |	2. equals()
+
+4. All wrapper classes and String | Only implemented class :
+   class implements Comparable    | 1. Collator and 2. RuleBasedCollator

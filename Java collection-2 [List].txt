@@ -1,0 +1,172 @@
+									+++ { List(I) } +++
+
+* Same as previous 2 points.
+* We can differentiate duplicates by using index.
+* We can preserve insertion order by using index, Hence index plays very imp role in list interface.
+
+add(Object o)
+void add(int index, Object o)
+boolean addAll(int index, Collection c)
+Object remove(int index)
+int indexOf(Object o): First occurence..
+int lastIndexOf(Object o)
+Object get(int index)
+ListIterator listIterator(): To retreive obj's one-by-one.
+Object set(int index, Object o): To replace.
+
+=======================================================================================================================================================================
+ArrayList:
+* Underlined datastructure is resizeable array or growable array.
+* Duplicates are allowed.
+* Insertion order is preserved.
+* Heterogeneous objects are allowed (Except Treeset and TreeMap everywhere heterogeneous objects are allowed).
+* Null insertion is possible.
+
+------------------------------------------------------------------------------------
+ArrayList Constructors:
+
+1. ArrayList al = new ArrayList()
+Creates an empty array list obj. with default initial capacity 10. Once array list reaches its capacity, A new array list will be created with new capacity as:
+new capacity = (current capacity * 3/2) + 1
+
+2. ArrayList al = new ArrayList(int initialCapacity)
+
+3. ArrayList al = new ArrayList(Collection c)
+
+* Usually we can use Collections to hold and transfer Objects from one place to another place, To provide support for this requirement every collection already
+implements Serializable and Cloneable interfaces.
+
+# Random Access:
+
+* ArrayList and Vector classes implements RandomAccess interface so that we can access any random element with the same speed. Hence, If our frequent operation is
+retrieval operation then ArrayList is the best choice.
+
+* Present in java.util.package.
+* It doesn't contain any method and it is a marker interface.
+
+When ArrayList should be used and when it shouldn't?
+* ArrayList is the best choice if our frequent operation is retrieval operation (Because ArrayList implements RandomAccess interfaces).
+* ArrayList is the worst choice if our frequent operation is insertion or deletion in the middle (Because several shift operations are required).
+
+=======================================================================================================================================================================
+Differences between ArrayList and Vector:
+
+ArrayList | Vector
+
+1. Every method is Non-synchronized | Every method is synchronized.
+2. Not Thread safe | Thread safe.
+3. Performance is high | Performance is low.
+4. 1.2v It is non-legacy | 1.0v It is legacy.
+
+=======================================================================================================================================================================
+Q> How to get Synchronized version of ArrayList object?
+By using Collection class synchronizedList() method.
+
+public static List synchronizedList(List l)
+public static Set synchronizedSet(Set s)
+public static Map synchronizedMap(Map m)
+
+Ex:- Non-synchronized: ArrayList l = new ArrayList();
+     Synchronized: List l1 = Collections.synchronizedList(l);
+
+=======================================================================================================================================================================
+									+++ { LinkedList(C) } +++
+
+* The underlying data stru. is doubly linked list.
+* Insertion order is preserved.
+* Duplicates are allowed.
+* Hetereogeneous obj's are allowed.
+* Null insertion is possible.
+* It implements serializable and cloneable interfaces. But not RandomAccess interf.
+* It is best choice, If frequent operation is insertion or deletion in the middle.
+  And worst for retrieval operation.
+
+* LinkedList is used to implement stacks and queues. Following methods are available:
+void addFirst();
+void addLast();
+Object getFirst();
+Object getLast();
+Object removeFirst();
+Object removeLast();
+
+LinkedList constructors: 
+* LinkedList l1 = new LinkedList();
+It creates an empty linked list.
+
+* LinkedList l1 = new LinkedList(Collection c);
+It creates an equivalent linked list object for the given collection.
+
+=======================================================================================================================================================================
+Differences between ArrayList and LinkedList:
+
+ArrayList | LinkedList
+
+1. Best for frequent retrieval operation | Best for frequent insertion and deletion operation.
+2. Underlying ds is resizealbe and growable array | Underlying ds is doubly linkedlist.
+3. Implements RandomAccess interface | Doesn't implements RandomAccess interface.
+
+=======================================================================================================================================================================
+									+++ { Vector(C) } +++
+
+* Heterogeneous objects allowed
+* Resizeable array/ growable array.
+* Duplicates allowed and insertion order is preserved.
+* null insertion allowed.
+* Serializable and coneable
+* RandomAccess
+* Synchronized. Hence, Thread safe.
+* Best choice. If frequent operation is retrieval.
+
+Vector specific methods:
+For adding objects:
+*add(Object o) : From Collection - List]
+* add(int index, Object o) : [From List]
+* addElement(Object o) : [From Vector]
+
+Other methods:
+* int size() : 
+* int capacity : 
+* Enumeration elements : 
+
+=======================================================================================================================================================================
+Constructors of Vector class:
+
+1. Vector v = new Vector();
+Creates an empty vector obj. with default initial capacity 10, Once vector reaches it's max capacity a new Vector obj. will be created with new capacity.
+New capacity = 2 * current capacity.
+
+2. Vector v = new Vector(int initialCapacity);
+Creates an empty Vector obj. with specified initial capacity.
+
+3. Vector v = new Vector(int initialCapacity, int incrementalCapacity);
+
+4. Vector v = new Vector(Collection c);
+Creates an equivalent vector obj. for the given collection.
+
+=======================================================================================================================================================================
+									+++ { Stack(C) } +++
+
+* It is a child class of Vector.
+* It is a specially designed class for LIFO.
+
+Constructor of Stack:
+Stack s = new Stack();
+
+Methods in Stack:
+1. Object push(Object o); //To insert obj.
+2. Object pop(); // To remove and return top of the stack
+3. Object peak(); // To return top of the stack without removal
+4. int search(Object o); // If the obj. is available it returns the offset from top of the stack else it returns -1
+
+=======================================================================================================================================================================
+
+
+
+
+
+
+
+
+
+
+

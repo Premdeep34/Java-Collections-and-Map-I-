@@ -1,0 +1,41 @@
+# Need of Collection framework:
+
+Arrays Limitations:
+1. Fixed in size.
+2. Holds only homogeneous data elements.
+3. Arrays concept is not implemented based on standard DS. Hence, ready made methods are nto available.
+
+Collections advantages:
+1. Growable in nature.
+2. Supports both homogeneous and heterogeneous data.
+3. Collections concept is based on standard DS.
+
+Difference between Arrays and Collectons:
+Arrays | Collections
+
+1. Fixed in size | Growable in nature.
+2. Not suitable wrt memory | suitable wrt memory.
+3. suitable wrt performance | Not suitable wrt performance.
+4. Can hold primitives and objects | Only objects can be hold. Not primitives.
+
+=================================================================================================================
+# Collection and Collection Framework:
+
+Collection: A collection is a group of individual objects as a signle entity.
+Collection Framework: It defines several classes and interfaces which can be used to represent a group of objects as a single entity.
+
+Java | C++
+1. Collection | Container
+2. Collection Framework | STL
+
+* A group of individual objects as a single entity is called collection.
+* Collection interface defines the most common methods which are applicable for any object.
+* In general collectoin interface is represent as root interface of Collection Framework.
+ 
+Note: There is no concrete class which implements collection interface directly.
+
+=================================================================================================================
+Difference between Collection and Collections?
+
+* Collection is an interface which can be used to represent a group of individual objects as a single entity.
+* Collections is a utility class present in java.util.package to define several utility methods (Like sorting, searching for collection objects).

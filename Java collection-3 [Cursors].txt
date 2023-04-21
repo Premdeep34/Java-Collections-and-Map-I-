@@ -1,0 +1,79 @@
+								+++{Three cursors of Java}+++
+
+* If we want to retrieve objects one by one from the collection, Then we should go for cursors.
+* There are three types of cursors in java:-
+	*Enumeration
+	*Iterator
+	*ListIterator
+
+---------------------------------------------------------------------------
+Enumeration:
+* Introduced in 1.0v (Legacy)
+* It is used to get obj.'s one by one from the old collection(Legacy collection).
+* Enumeration obj. is created by using elements() method of Vector class.
+	Public Enumeration elements();
+
+Methods of Enumeration: 
+* public boolean hasMoreElements();
+* public Object nextElement();
+
+Limitations of Enumeration:
+* Only applicable for legacy classes. Hence, it is not a universal cursor.
+* We only get read access. We can't perform remove operation.
+
+======================================================================================================================================================================
+Iterator:
+
+1. Iterator can be applied to any collection obj. Hence it is a universal cursor.
+2. By iterator we can perform both read and remove operation.
+
+* Iterator object can be created by iterator() method of Collection interface.
+	public Iterator iterator();
+
+Ex: Iterator itr = C.iterator() // C is any collection obj.
+
+---------------------------------------------------------------------------
+Methods in Iterator:
+1. public boolean hasNext();
+2. public Object next();
+3. public void remove();
+
+---------------------------------------------------------------------------
+Limitations of Iterator:
+1. Enumeration and Iterator can only move in forward direction. Hence, These are single direction cursors.
+2. By using iterator only read and remove operations are performed. And replacement of new objects cannot be performed.
+
+Note: ListIterator can fullfill the above limitatons.
+
+======================================================================================================================================================================
+ListIterator:
+
+1. It can move to either forward as well as backward direction. Hence, It is a bidirectional cursor.
+2. We can perform replacement and addition of new objects.
+
+* ListIterator obj. is created by using listIterator() method of List interface.	
+	public ListIterator listIterator();
+Ex:
+	ListIterator itr = l.listIterator(); // Where l is any list object.
+
+---------------------------------------------------------------------------
+Methods in ListIterator:
+* ListIterator is child interface of iterator. Hence, All methods of Iterator by default available to ListIterator.
+* It defines the following 9 methods.
+
+For forward direction:
+1. public boolean hasNext();
+2. public void next();
+3. public int nextIndex();
+
+For backward direction:
+4. public boolean hasPrevious();
+5. public void previous();
+6. public int previousIndex();	
+
+Other methods:
+7. public void remove();
+8. public void set(Object new);
+9. public void add(Object new);
+
+Note: ListIterator is the most powerful cursor. But, the limitation is, It is only applicable for for list implemented classes and it is not a universal cursor.	

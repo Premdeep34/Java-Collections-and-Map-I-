@@ -1,0 +1,121 @@
+									+++{Map(I)}+++
+
+* Map is not a child interface of collection.
+* If we want to represent a group of obj.'s as key-value pairs then we should go for map.
+* Both keys and values are objects only.
+* Duplicate keys are not allowed. But values can be duplicate.
+* Each key-value pair is called entry. Hence map is considered as a collection of entry objects.
+
+------------------------------------------------------------------------------
+Map interface methods:
+
+1. Object put(Object key, Object value);
+- To add one key-value pair to the map.
+- If the key is already present then the old value will be replaced with new value and returns old value.
+eg: m.put(101, "durga");
+    m.put(102, "shiva");
+    m.put(101, "ravi"); // durga will be replaced with ravi
+
+2. void putAll(Map m);
+3. Object get(Object key);
+- Returns the value associated with specified key.
+
+4. Object remove(Object key);
+- Removes the entry associated with specified key.
+
+5. boolean containsKey(Object key);
+6. boolean containsValue(Object value);
+7. boolean isEmpty();
+9. int size();
+10. void clear();
+
+----------------------------------
+Collection keys of map:
+
+11. Set keySet()
+12. Collection values()
+13. Set entrySet()
+
+---------------------------------
+Entry: A map is a group of key-value paris and each key-value pair is called an entry. Hence map is considered as a collection of entry of obj.'s.
+Without existing map object there's no chance of existing entry obj. Hence entry interface is defined inside map interface.
+
+interface Map {
+	interface Entry {
+		Object getKey();
+		Object getValue();
+		Object setValue(Object obj);
+	}
+}
+
+=======================================================================================================================================================================
+									+++{HashMap(C)}+++
+
+* The underlying ds. is hash-table.
+* Insertion order is not preserved and it is based on hash-code of keys.
+* Duplicates are not allowed. But values can be duplicate.
+* Heterogeneous obj.'s are allowed for both keys and values.
+* Null is allowed for key(only once) | Null is allowed for values(any no. of times).
+* HashMap implements Serializable and Cloneable interfaces but not random access.
+* HashMap is the best choice if our frequent operation is searching
+
+------------------------------------------------------------------------------
+HashMap Constructors:
+
+1. HashMap m = new HashMap();
+- Creates an empty hash-map obj. with default initial capacity 16 and default fill ratio 0.75.
+
+2. HashMap m = new HashMap(int initialCapacity);
+- Creates an empty hash-map obj. with specified initial capacity and default fill ratio 0.75.
+
+3. HashMap m = new HashMap(int initialCapacity, float fillRatio);
+- HashMap m = new HashMap(Map m);
+
+[HashMap Demo Program]
+
+------------------------------------------------------------------------------
+Q> What is the difference between hash-map and hash-table?
+Hash-map | Hash-table
+
+1. Every method present in hash-map is Non-synchronized | Every method present in hash-table is synchronized
+
+2. At a time multiple threads are allowed to operate on hash-map ojb. | At a time only one thread is allowed to operate on hash-table and Hence it is thread safe.
+Hence, It is not thread safe.                                         | 
+
+3. Relatively performance is high because threads are not required to | Relatively performance is low because threads are not required to wait to operate on hash-table obj.
+wait to operate on hash-map obj.                                      |
+
+4. Null is allowed for both key and value | Null is not allowed for keys and values. Otherwise we'll get Null P.E.
+
+5. Introduced in 1.2v and it is not legacy | Introduced in 1.0v and it is legacy
+
+Q> How to get Synchronized version of Hash-map obj.?
+By default hash-map is non-synchronized. But we can get synchronized version of hash-map by using Synchronized map method of Collections class.
+eg:
+	HashMap m = new HashMap();
+	Map m1 = Collections.synchronizedMap(m);
+
+=======================================================================================================================================================================
+									+++{LinkedHashMap(C)}+++
+
+* It is the child class of Hash-map.
+* It is exactly same as hash-map including methods and constructors except the following differences:
+HashMap | LinkedHashMap
+
+1. The underlying ds. is hash-table | The underlying ds. is combination of hash-table & linked-list(Hybrid ds.)
+2. Insertion order is not preserved & it is based on hash-code of keys | Insertion order is preserved 
+3. Introduced in 1.2v | Introduced in 1.4v
+
+Note: Linked hash-set and linked hash-map are commonly used for cache based application.
+
+------------------------------------------------------------------------------
+Difference between == and equals() 
+* In general == operat. meant for reference comparison(address comparison) whereas equals() meant for content comparison.
+eg:
+	Integer i1 = new Integer(10);
+	Integer i2 = new Integer(10);
+	sop(i1 == i2) // false
+	sop(i1.equals(i2)) // true
+
+
+
